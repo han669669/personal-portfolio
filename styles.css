@@ -1,0 +1,46 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* Dark text for contrast */
+    font-family: 'Inter var', 'Inter', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+.animated-element {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.socials-icon {
+    text-decoration: none;
+}
+
+:root {
+    --cyberpunk-red: #ff003c;
+    --neon-pink: #f72585;
+    --neon-purple: #7209b7;
+    --pink: #fecbe1;
+}
+
+body {
+    background-color: #0a0a0a;
+    /* Dark background for a cyberpunk theme */
+    color: var(--cyberpunk-red);
+}
+
+a:hover,
+.socials-icon:hover {
+    color: var(--pink);
+    text-shadow: 0 0 10px var(--pink), 0 0 20px var(--pink);
+}
+
+.animated-element {
+    box-shadow: 0 0 15px var(--pink), 0 0 25px var(--pink);
+    border-color: var(--pink);
+}
