@@ -239,30 +239,36 @@
     </footer>
 
 
-    <!-- Lightbox Modal for Booking via WhatsApp -->
+    <!-- Lightbox Modal for Booking via WhatsApp - Modern Redesign -->
     <div class="modal fade" id="whatsappBookingModal" tabindex="-1" aria-labelledby="whatsappBookingModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-dark text-light">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="whatsappBookingModalLabel">Book Me via WhatsApp</h5>
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="whatsappBookingModalLabel">Book Via WhatsApp</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Please enter your details and we'll contact you shortly on WhatsApp.</p>
-                    <form>
+                    <p>Enter your details for a quick contact on WhatsApp.</p>
+                    <form class="needs-validation" novalidate>
                         <div class="mb-3">
-                            <label for="name" class="col-form-label">Name:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                            <input type="text" class="form-control form-control-lg" id="name" placeholder="Name"
+                                required>
+                            <div class="invalid-feedback">
+                                Please provide your name.
+                            </div>
                         </div>
                         <div class="mb-3">
-                            <label for="phone" class="col-form-label">Phone Number:</label>
-                            <input type="tel" class="form-control" id="phone" placeholder="Your Phone Number" required>
+                            <input type="tel" class="form-control form-control-lg" id="phone" placeholder="Phone Number"
+                                required pattern="^\+?\d{0,13}">
+                            <div class="invalid-feedback">
+                                Please provide a valid phone number.
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <button type="button" class="btn btn-primary" onclick="sendMessageToWhatsApp()">Send to
-                                WhatsApp</button>
+                        <div class="d-grid gap-2">
+                            <button type="button" class="btn btn-primary btn-lg" onclick="sendMessageToWhatsApp()">Send
+                                to WhatsApp</button>
                         </div>
                     </form>
                 </div>
@@ -276,7 +282,7 @@
             var name = document.getElementById('name').value;
             var phone = document.getElementById('phone').value;
             var whatsappUrl = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(phone) +
-                "&text=" + encodeURIComponent("Hello, my name is " + name + ". I would like to book an appointment.");
+                "&text=" + encodeURIComponent("Hello, my name is " + name + ". I would like to book an appointment！");
             window.open(whatsappUrl, '_blank');
         }
     </script>
