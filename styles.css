@@ -44,3 +44,40 @@ a:hover,
     box-shadow: 0 0 15px var(--pink), 0 0 25px var(--pink);
     border-color: var(--pink);
 }
+
+@media (min-width: 992px) {
+
+    /* Assuming 'desktop view' starts at 992px */
+    #hero .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    #hero h1 {
+        flex: 1;
+    }
+
+    #hero p {
+        flex: 1;
+        text-align: right;
+    }
+}
+
+#hero .vertical-divider {
+    width: 2px;
+    height: 60vh;
+    background-image: linear-gradient(to bottom, transparent, #fff, transparent);
+    transform: rotate(20deg);
+    margin: auto;
+}
+
+@media (max-width: 991px) {
+    #hero .vertical-divider {
+        width: 60vw;
+        height: 2px;
+        background-image: linear-gradient(to right, transparent, #fff, transparent);
+        transform: rotate(0deg);
+    }
+}
