@@ -283,73 +283,44 @@
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-dark text-light">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title" id="whatsappBookingModalLabel">Book Via WhatsApp</h5>
+                <div class="modal-header border-0 pb-0">
+                    <h4 class="modal-title" id="whatsappBookingModalLabel">Book Via WhatsApp <i
+                            class="fab fa-whatsapp"></i></h4>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Enter your details for a quick contact on WhatsApp.</p>
-                    <form class="needs-validation" novalidate>
+                    <p>Let's chat !😊<br>Share your name to start our conversation👋</p>
+                    <form class="needs-validation" novalidate
+                        onsubmit="event.preventDefault(); if(checkForm(this)){sendMessageToWhatsApp();}">
                         <div class="mb-3">
                             <input type="text" class="form-control form-control-lg" id="name" placeholder="Name"
-                                required>
+                                required oninput="checkNameInput(this)">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
                             <div class="invalid-feedback">
                                 Please provide your name.
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <input type="tel" class="form-control form-control-lg" id="phone" placeholder="Phone Number"
-                                required pattern="^\+?\d{0,13}">
-                            <div class="invalid-feedback">
-                                Please provide a valid phone number.
-                            </div>
-                        </div>
                         <div class="d-grid gap-2">
-                            <button type="button" class="btn btn-primary btn-lg" onclick="sendMessageToWhatsApp()">Send
-                                to WhatsApp</button>
+                            <button type="submit" class="btn btn-primary btn-lg">Send to WhatsApp</button>
                         </div>
                     </form>
                 </div>
+                <hr class="mb-3"
+                    style="border: none; height: 2px; background-image: linear-gradient(to right, transparent, #fff, transparent); width: 60%; margin: auto;">
             </div>
         </div>
     </div>
 
-    <!-- Additional JavaScript to handle form submission and WhatsApp redirection -->
-    <script>
-        function sendMessageToWhatsApp() {
-            var name = document.getElementById('name').value;
-            var phone = document.getElementById('phone').value;
-            var whatsappUrl = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(phone) +
-                "&text=" + encodeURIComponent("Hello, my name is " + name + ". I would like to book an appointment！");
-            window.open(whatsappUrl, '_blank');
-        }
-    </script>
-
-    <!-- Custom CSS for glow effects, animations -->
-    <style>
-        /* Custom CSS for glow effects */
-        .glow {
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-        }
-
-        .glow:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-
-        /* CSS Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
+    <!-- <div class="mb-3">
+        <input type="tel" class="form-control form-control-lg" id="phone" placeholder="+60 12-345 6789" required
+            pattern="^\+?\d{0,13}">
+        <div class="invalid-feedback">
+            Please provide a valid phone number.
+        </div>
+    </div> -->
 
     <!-- SEO optimizations and meta tags in <head> -->
     <!-- Performance optimizations with lazy loading -->

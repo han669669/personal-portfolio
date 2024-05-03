@@ -45,6 +45,7 @@ a:hover,
     border-color: var(--pink);
 }
 
+/* Hero Section */
 @media (min-width: 992px) {
 
     /* Assuming 'desktop view' starts at 992px */
@@ -79,5 +80,37 @@ a:hover,
         height: 2px;
         background-image: linear-gradient(to right, transparent, #fff, transparent);
         transform: rotate(0deg);
+    }
+}
+
+/* Form Validation Styling */
+.is-valid .form-control {
+    border-color: #198754;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%2328a745\' viewBox=\'0 0 8 8\'%3E%3Cpath d=\'M6.564.75c-.15-.14-.36-.14-.51 0L3 4.192 1.946 3.146a.515.515 0 1 0-.73.73l1.47 1.47a.515.515 0 0 0 .73 0L6.564 1.26a.515.515 0 0 0 0-.51z\'/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+/* Glow Effects & Animations */
+.glow {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.glow:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* CSS Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
