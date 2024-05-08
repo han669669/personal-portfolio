@@ -1,13 +1,13 @@
 // Leaflet OpenStreetMap
-var mapid = L.map('mapid').setView([3.1573491, 101.7114804], 13);
+// var mapid = L.map('mapid').setView([3.1573491, 101.7114804], 13);
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(mapid);
+// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//     maxZoom: 19,
+//     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+// }).addTo(mapid);
 
-var marker = L.marker([3.1573491, 101.7114804]).addTo(mapid);
-marker.bindPopup("<b>你好<br>Hello</b><br>Address").openPopup();
+// var marker = L.marker([3.1573491, 101.7114804]).addTo(mapid);
+// marker.bindPopup("<b>你好<br>Hello</b><br>Address").openPopup();
 
 // Form Validation
 function checkForm(form) {
@@ -35,3 +35,29 @@ function sendMessageToWhatsApp() {
     var whatsappUrl = "https://api.whatsapp.com/send?phone=%2B6582116596" + "&text=" + encodeURIComponent("Hi! My name is " + name + ". I would like to book an appointment！");
     window.open(whatsappUrl, '_blank');
 }
+
+// Owl Carousel
+$(document).ready(function () {
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        center: true,
+        items: 3,
+        margin: 0,
+        autoplay: true,
+        dots: true,
+        autoplayTimeout: 1000,
+        autoplayHoverPause: true,
+        smartSpeed: 2000,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            1170: {
+                items: 3
+            }
+        }
+    });
+});

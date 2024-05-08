@@ -41,7 +41,7 @@ a:hover,
 }
 
 .animated-element {
-    box-shadow: 0 0 15px var(--pink), 0 0 25px var(--pink);
+    /* box-shadow: 0 0 15px var(--pink), 0 0 25px var(--pink); */
     border-color: var(--pink);
 }
 
@@ -113,4 +113,134 @@ a:hover,
     to {
         opacity: 1;
     }
+}
+
+/* Owl Carousel */
+.owl-carousel .item .card {
+    width: 100%;
+    /* border-radius: 10px; */
+    border: none;
+    background: #000;
+}
+
+.owl-carousel .item .card img {
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+i.fa-star {
+    color: orangered;
+}
+
+.btn-group i {
+    color: orangered;
+}
+
+.btn-group button:hover {
+    background-color: orange;
+}
+
+.btn-group button:hover i.fa-solid {
+    color: black;
+}
+
+.card-body h2 {
+    font-size: 1.2em;
+    text-transform: capitalize;
+}
+
+/* Indicators */
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+    background: #fcacce;
+    width: 30px;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+    width: 15px;
+    height: 15px;
+    background: var(--pink);
+    transition: all .2s ease;
+}
+
+/* Controls */
+/* button element */
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev {
+    position: relative;
+    background-color: rgba(255, 166, 0, 0.3);
+    width: 30px;
+    padding: 5px;
+}
+
+.owl-carousel .owl-nav button.owl-next:hover,
+.owl-carousel .owl-nav button.owl-prev:hover {
+    background-color: #fcacce;
+}
+
+.owl-carousel .owl-nav button.owl-next::before,
+.owl-carousel .owl-nav button.owl-prev::before {
+    width: 100%;
+    height: 100%;
+    color: var(--pink);
+    /* inset: 0;
+  position: absolute; */
+}
+
+.owl-carousel .owl-nav button.owl-next::before {
+    content: '\f061';
+    /*unicode for arrow-right*/
+    font-family: 'Font Awesome 5 Free';
+    /* Font family for Font Awesome */
+    font-weight: 900;
+    /* Font weight for the solid style (fas) */
+    margin-right: 5px;
+}
+
+.owl-carousel .owl-nav button.owl-prev::before {
+    content: '\f060';
+    /*unicode for arrow-left*/
+    font-family: 'Font Awesome 5 Free';
+    /* Font family for Font Awesome */
+    font-weight: 900;
+    /* Font weight for the solid style (fas) */
+    margin-right: 5px;
+}
+
+.owl-carousel .owl-nav .owl-next [aria-label="Next"],
+.owl-carousel .owl-nav .owl-prev [aria-label="Previous"] {
+    visibility: hidden
+        /*The Span element*/
+}
+
+/* 3D Spinner */
+.owl-carousel .item {
+    text-align: center;
+    padding: 50px;
+    margin-bottom: 10px;
+    opacity: .2;
+    -webkit-transform: scale3d(0.8, 0.8, 1);
+    transform: scale3d(0.8, 0.8, 1);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.owl-carousel .owl-item.active.center .item {
+    opacity: 1;
+    -webkit-transform: scale3d(1.0, 1.0, 1);
+    transform: scale3d(1.0, 1.0, 1);
+}
+
+.owl-carousel .item img {
+    display: block;
+    /* Ensure images are block level elements */
+    width: 100%;
+    /* Set image width to 100% of its container */
+    height: auto;
+    /* Adjust height automatically to maintain aspect ratio */
+}
+
+#custom-cards {
+    background-color: #111111;
 }
