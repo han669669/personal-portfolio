@@ -216,14 +216,21 @@ i.fa-star {
 /* 3D Spinner */
 .owl-carousel .item {
     text-align: center;
-    padding: 50px;
-    margin-bottom: 10px;
+    padding: 2.5rem 3.125rem 1.25rem 3.125rem;
+    margin-bottom: 5px;
     opacity: .2;
     -webkit-transform: scale3d(0.8, 0.8, 1);
     transform: scale3d(0.8, 0.8, 1);
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+}
+
+/* For Smaller Screens */
+@media only screen and (max-width: 599px) {
+    .owl-carousel .item {
+        padding: 1.25rem 1.5625rem 0.625rem 1.5625rem;
+    }
 }
 
 .owl-carousel .owl-item.active.center .item {
@@ -233,12 +240,12 @@ i.fa-star {
 }
 
 .owl-carousel .item img {
-    display: block;
-    /* Ensure images are block level elements */
-    width: 100%;
-    /* Set image width to 100% of its container */
+    max-width: 100%;
+    /* Set image max-width to 100% of the container width */
     height: auto;
     /* Adjust height automatically to maintain aspect ratio */
+    object-fit: cover;
+    /* Cover the area without losing aspect ratio */
 }
 
 #custom-cards {

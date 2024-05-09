@@ -47,7 +47,8 @@ $(document).ready(function () {
         dots: true,
         autoplayTimeout: 1000,
         autoplayHoverPause: true,
-        smartSpeed: 2000,
+        // milliseconds
+        smartSpeed: 300,
         responsive: {
             0: {
                 items: 1
