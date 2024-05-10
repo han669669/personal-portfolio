@@ -70,16 +70,42 @@ a:hover,
     width: 2px;
     height: 60vh;
     background-image: linear-gradient(to bottom, transparent, #fff, transparent);
-    transform: rotate(20deg);
+    transform: rotate(-50deg);
     margin: auto;
+    width: 30%;
 }
 
 @media (max-width: 991px) {
     #hero .vertical-divider {
-        width: 60vw;
+        width: 95%;
         height: 2px;
         background-image: linear-gradient(to right, transparent, #fff, transparent);
         transform: rotate(0deg);
+    }
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 2px #2b2b2b;
+}
+
+#hero h1 {
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.05em;
+}
+
+#hero h2 {
+    font-family: 'Verdana', sans-serif;
+    line-height: 1.6;
+    width: 100%;
+}
+
+@media only screen and (min-width: 991px) {
+    #hero h2 {
+        width: 50%;
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 2rem !important;
     }
 }
 
@@ -250,4 +276,18 @@ i.fa-star {
 
 #custom-cards {
     background-color: #111111;
+}
+
+/* Parallax Background */
+.parallax-background {
+    /* Optional styles for the parallax effect */
+    perspective: 1px;
+    perspective-origin: center;
+    transform: translateZ(0);
+    background-image: url('./assets/branding/IMG_0178\ \(W1080\ H1440\).jpg');
+    /* Add your background image path */
+    background-size: cover;
+    /* Cover the entire area */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
 }

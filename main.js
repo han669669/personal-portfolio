@@ -62,3 +62,12 @@ $(document).ready(function () {
         }
     });
 });
+
+// Parallax Scrolling Effect For The Hero Section
+document.addEventListener('DOMContentLoaded', function () {
+    var heroSection = document.getElementById('hero');
+    window.addEventListener('scroll', function () {
+        var scrollPosition = window.pageYOffset;
+        heroSection.style.transform = 'translateY(' + scrollPosition * 0.2 + 'px)';
+    });
+});
