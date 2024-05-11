@@ -291,3 +291,17 @@ i.fa-star {
     background-repeat: no-repeat;
     /* Do not repeat the image */
 }
+
+/* Hide Mobile Whatsapp Link On Desktop */
+@media screen and (min-width: 992px) {
+    #wa-mobile {
+        display: none;
+    }
+}
+
+/* Hide Desktop Whatsapp Link On Mobile */
+@media screen and (max-width: 991px) {
+    #wa-desktop {
+        display: none;
+    }
+}

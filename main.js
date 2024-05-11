@@ -31,9 +31,14 @@ function checkNameInput(input) {
 // Form Submission and WhatsApp Redirection
 function sendMessageToWhatsApp() {
     var name = document.getElementById('name').value;
-    // var phone = document.getElementById('phone').value;
-    var whatsappUrl = "https://api.whatsapp.com/send?phone=%2B6582116596" + "&text=" + encodeURIComponent("Hi! My name is " + name + ". I would like to book an appointment！");
-    window.open(whatsappUrl, '_blank');
+    var message = encodeURIComponent("Hi! My name is " + name + ". I would like to book an appointment！");
+    var whatsappDesktopUrl = "https://api.whatsapp.com/send?phone=%2B6582116596&text=" + message;
+    var whatsappMobileUrl = "whatsapp://send?phone=+6582116596&text=" + message;
+    
+    // Open WhatsApp Desktop URL If The Screen Width Is Greater Than 991px 
+    // Else Open WhatsApp Mobile URL
+    var urlToOpen = window.innerWidth > 991 ? whatsappDesktopUrl : whatsappMobileUrl;
+    window.open(urlToOpen, '_blank');
 }
 
 // Owl Carousel
