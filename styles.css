@@ -305,3 +305,58 @@ i.fa-star {
         display: none;
     }
 }
+
+/* Profile Photo About Section*/
+.profile-photo {
+    width: 30vw;
+    /* Changed to viewport width */
+    height: 30vw;
+    /* Changed to viewport width */
+    max-width: 300px;
+    /* Added max width to maintain size limit */
+    max-height: 300px;
+    /* Added max height to maintain size limit */
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    /* Added modern shadow */
+    border: 3px solid transparent;
+    /* Added border */
+    background-image: linear-gradient(white, white), radial-gradient(circle at center, #ffafbd, #ffc3a0);
+    /* Added cool looking border design */
+    background-origin: border-box;
+    /* Applies the background to the border */
+    background-clip: content-box, border-box;
+    /* Clips the background to the content and border */
+}
+
+.profile-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    /* Ensure the image fills the container */
+    height: 100%;
+    /* Ensure the image fills the container */
+    object-fit: cover;
+    /* Added to maintain aspect ratio */
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s;
+}
+
+@media (max-width: 991px) {
+
+    /* Assuming 991px is the breakpoint for mobile view */
+    .profile-photo {
+        width: 50vw;
+        /* Enlarged to fit viewport on mobile */
+        height: 50vw;
+        /* Enlarged to fit viewport on mobile */
+        max-width: none;
+        /* Remove max width on mobile */
+        max-height: none;
+        /* Remove max height on mobile */
+    }
+}

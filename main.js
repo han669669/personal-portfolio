@@ -34,7 +34,7 @@ function sendMessageToWhatsApp() {
     var message = encodeURIComponent("Hi! My name is " + name + ". I would like to book an appointment！");
     var whatsappDesktopUrl = "https://api.whatsapp.com/send?phone=%2B6582116596&text=" + message;
     var whatsappMobileUrl = "whatsapp://send?phone=+6582116596&text=" + message;
-    
+
     // Open WhatsApp Desktop URL If The Screen Width Is Greater Than 991px 
     // Else Open WhatsApp Mobile URL
     var urlToOpen = window.innerWidth > 991 ? whatsappDesktopUrl : whatsappMobileUrl;
@@ -75,4 +75,16 @@ document.addEventListener('DOMContentLoaded', function () {
         var scrollPosition = window.pageYOffset;
         heroSection.style.transform = 'translateY(' + scrollPosition * 0.2 + 'px)';
     });
+});
+
+// Profile Photo Animation
+document.addEventListener('DOMContentLoaded', function () {
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.profile-photo .profile-img');
+    const changeImage = () => {
+        images[currentIndex].style.opacity = 0;
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].style.opacity = 1;
+    };
+    setInterval(changeImage, 3000); // Change image every 3 seconds
 });
