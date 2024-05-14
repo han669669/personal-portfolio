@@ -284,7 +284,7 @@ i.fa-star {
     perspective: 1px;
     perspective-origin: center;
     transform: translateZ(0);
-    background-image: url('./assets/branding/IMG_0178.jpg');
+    background-image: url('./assets/branding/IMG_0178.jpg/');
     /* Add your background image path */
     background-size: cover;
     /* Cover the entire area */
