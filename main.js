@@ -88,3 +88,30 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     setInterval(changeImage, 3000); // Change image every 3 seconds
 });
+
+// Imgur API Integration
+const accessToken = "9528be1d30f6edb64eb4f80c18b2bfa1ebbaa934";
+const apiUrl = "https://api.imgur.com/3";
+
+var myHeaders = new Headers();
+myHeaders.append("Authorization", `Bearer ${accessToken}`);
+
+var requestOptions = {
+  method: "GET",
+  headers: myHeaders,
+  redirect: "follow"
+};
+
+fetch(`${apiUrl}/account/me/images`, requestOptions)
+  .then((response) => response.json()) // Parse the JSON in the response
+  .then((result) => {
+    const photos = result.data;
+    photos.forEach((photo) => {
+      console.log(photo.link);
+      // Display it in a HTML element
+      const imgElement = document.createElement("img");
+      imgElement.src = photo.link;
+      document.getElementById("photos").appendChild(imgElement);
+    });
+  })
+  .catch((error) => console.error("Error fetching images:", error)); // Log more informative error message
