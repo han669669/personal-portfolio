@@ -166,6 +166,7 @@ function hideEnlargedImage() {
     overlay.style.display = 'none';
 }
 
+// Fetch images from Imgur API
 fetch(`${apiUrl}/account/me/images`, requestOptions)
     .then(response => {
         if (!response.ok) {
@@ -197,3 +198,36 @@ fetch(`${apiUrl}/account/me/images`, requestOptions)
     .catch(error => {
         console.error("Error fetching images:", error.message);
     });
+
+// Appointlet Button Integration
+document.addEventListener('DOMContentLoaded', (event) => {
+    const contactSection = document.getElementById('contact');
+    const appointletButton = document.querySelector('.appointlet-button');
+    let isButtonVisible = false;
+
+    function toggleButtonVisibility() {
+        const contactSectionTop = contactSection.offsetTop;
+        const contactSectionHeight = contactSection.offsetHeight;
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Show button when user scrolls down to the #contact section and hide it otherwise
+        const shouldShowButton = scrollPosition >= contactSectionTop && scrollPosition < contactSectionTop + contactSectionHeight;
+        if (shouldShowButton && !isButtonVisible) {
+            appointletButton.style.display = 'block';
+            appointletButton.style.position = 'fixed';
+            appointletButton.style.bottom = '20px';
+            appointletButton.style.right = '20px';
+            appointletButton.style.zIndex = '1000';
+            isButtonVisible = true;
+        } else if (!shouldShowButton && isButtonVisible) {
+            appointletButton.style.display = 'none';
+            isButtonVisible = false;
+        }
+    }
+
+    // Initial check in case the page is loaded with the #contact section already in view
+    toggleButtonVisibility();
+
+    // Check visibility on scroll
+    window.addEventListener('scroll', toggleButtonVisibility);
+});

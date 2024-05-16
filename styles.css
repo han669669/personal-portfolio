@@ -450,3 +450,8 @@ i.fa-star {
     max-height: 90%;
     border-radius: 4px;
 }
+
+/* Appointlet Scheduling Appointment Widget */
+.appointlet-inline {
+    height: 31.25rem;
+}
