@@ -362,11 +362,91 @@ i.fa-star {
 }
 
 /* Imgur API Image Styling */
-#photos img {
+/* #photos img {
     width: 100%;
     height: 100%;
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
     object-position: center;
+} */
+
+/* Photo Filter Category Styling */
+#photoCategories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Align categories horizontally to the center */
+    margin-bottom: 10px;
+}
+
+.photo-category {
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.photo-category.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.photo-category:hover {
+    background-color: #025fc2;
+    color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.img-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    align-items: center;
+    /* centers the images vertically within the container */
+    justify-items: center;
+    /* centers the images horizontally within the container */
+}
+
+.img-gallery img {
+    width: auto;
+    /* width is automatically adjusted, only max-width is set */
+    height: auto;
+    /* height is automatically adjusted, only max-height is set */
+    max-width: 100%;
+    max-height: 100vh;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.img-gallery img:hover {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 4px;
 }

@@ -90,6 +90,33 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Imgur API Integration
+// const accessToken = "9528be1d30f6edb64eb4f80c18b2bfa1ebbaa934";
+// const apiUrl = "https://api.imgur.com/3";
+
+// var myHeaders = new Headers();
+// myHeaders.append("Authorization", `Bearer ${accessToken}`);
+
+// var requestOptions = {
+//   method: "GET",
+//   headers: myHeaders,
+//   redirect: "follow"
+// };
+
+// fetch(`${apiUrl}/account/me/images`, requestOptions)
+//   .then((response) => response.json()) // Parse the JSON in the response
+//   .then((result) => {
+//     const photos = result.data;
+//     photos.forEach((photo) => {
+//       console.log(photo.link);
+//       // Display it in a HTML element
+//       const imgElement = document.createElement("img");
+//       imgElement.src = photo.link;
+//       document.getElementById("photos").appendChild(imgElement);
+//     });
+//   })
+//   .catch((error) => console.error("Error fetching images:", error)); // Log more informative error message
+
+// Imgur API Integration
 const accessToken = "9528be1d30f6edb64eb4f80c18b2bfa1ebbaa934";
 const apiUrl = "https://api.imgur.com/3";
 
@@ -97,21 +124,76 @@ var myHeaders = new Headers();
 myHeaders.append("Authorization", `Bearer ${accessToken}`);
 
 var requestOptions = {
-  method: "GET",
-  headers: myHeaders,
-  redirect: "follow"
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow"
 };
 
-fetch(`${apiUrl}/account/me/images`, requestOptions)
-  .then((response) => response.json()) // Parse the JSON in the response
-  .then((result) => {
-    const photos = result.data;
-    photos.forEach((photo) => {
-      console.log(photo.link);
-      // Display it in a HTML element
-      const imgElement = document.createElement("img");
-      imgElement.src = photo.link;
-      document.getElementById("photos").appendChild(imgElement);
+let categories = new Set(['all']); // Initialize with 'all' category
+const photoCategoriesElement = document.getElementById('photoCategories');
+
+function createCategoryButton(category) {
+    const categoryElement = document.createElement('span');
+    categoryElement.textContent = category;
+    categoryElement.className = 'photo-category';
+    categoryElement.onclick = () => filterPhotos(category);
+    photoCategoriesElement.appendChild(categoryElement);
+}
+
+function filterPhotos(category) {
+    document.querySelectorAll('.photo-category').forEach(categoryElement => {
+        categoryElement.classList.remove('active');
     });
-  })
-  .catch((error) => console.error("Error fetching images:", error)); // Log more informative error message
+    event.target.classList.add('active');
+
+    const allImages = document.querySelectorAll('#imgGallery img');
+    allImages.forEach(img => {
+        img.style.display = img.getAttribute('data-category').toLowerCase() === category || category === 'all' ? '' : 'none';
+    });
+}
+
+// Function to show the enlarged image
+function showEnlargedImage(src) {
+    const overlay = document.getElementById('imageOverlay');
+    const enlargedImage = document.getElementById('enlargedImage');
+    enlargedImage.src = src;
+    overlay.style.display = 'flex';
+}
+
+// Function to hide the enlarged image
+function hideEnlargedImage() {
+    const overlay = document.getElementById('imageOverlay');
+    overlay.style.display = 'none';
+}
+
+fetch(`${apiUrl}/account/me/images`, requestOptions)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(result => {
+        const photos = result.data;
+        const imgGallery = document.getElementById('imgGallery');
+        photos.forEach(photo => {
+            const category = (photo.title || 'Uncategorized').toLowerCase();
+            categories.add(category); // Add new category from title
+            const imgElement = document.createElement('img');
+            imgElement.src = photo.link;
+            imgElement.setAttribute('data-category', category);
+            imgElement.onclick = () => showEnlargedImage(photo.link); // Add onclick event to show enlarged image
+            imgGallery.appendChild(imgElement);
+        });
+
+        categories.forEach(createCategoryButton);
+        // Activate the second 'photo-category' by default, if it exists
+        const categoryButtons = document.querySelectorAll('.photo-category');
+        if (categoryButtons.length >= 2) {
+            categoryButtons[1].classList.add('active');
+            categoryButtons[1].click();
+        }
+    })
+    .catch(error => {
+        console.error("Error fetching images:", error.message);
+    });
