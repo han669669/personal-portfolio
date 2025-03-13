@@ -443,6 +443,7 @@ i.fa-star {
     display: none;
     align-items: center;
     justify-content: center;
+    z-index: 10000;
 }
 
 .overlay img {
@@ -454,4 +455,12 @@ i.fa-star {
 /* Appointlet Scheduling Appointment Widget */
 .appointlet-inline {
     height: 31.25rem;
+}
+
+.appointlet-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    z-index: 100;
 }

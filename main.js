@@ -1,14 +1,3 @@
-// Leaflet OpenStreetMap
-// var mapid = L.map('mapid').setView([3.1573491, 101.7114804], 13);
-
-// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     maxZoom: 19,
-//     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-// }).addTo(mapid);
-
-// var marker = L.marker([3.1573491, 101.7114804]).addTo(mapid);
-// marker.bindPopup("<b>你好<br>Hello</b><br>Address").openPopup();
-
 // Form Validation
 function checkForm(form) {
     if (!form.checkValidity()) {
@@ -89,32 +78,6 @@ document.addEventListener('DOMContentLoaded', function () {
     setInterval(changeImage, 3000); // Change image every 3 seconds
 });
 
-// Imgur API Integration
-// const accessToken = "9528be1d30f6edb64eb4f80c18b2bfa1ebbaa934";
-// const apiUrl = "https://api.imgur.com/3";
-
-// var myHeaders = new Headers();
-// myHeaders.append("Authorization", `Bearer ${accessToken}`);
-
-// var requestOptions = {
-//   method: "GET",
-//   headers: myHeaders,
-//   redirect: "follow"
-// };
-
-// fetch(`${apiUrl}/account/me/images`, requestOptions)
-//   .then((response) => response.json()) // Parse the JSON in the response
-//   .then((result) => {
-//     const photos = result.data;
-//     photos.forEach((photo) => {
-//       console.log(photo.link);
-//       // Display it in a HTML element
-//       const imgElement = document.createElement("img");
-//       imgElement.src = photo.link;
-//       document.getElementById("photos").appendChild(imgElement);
-//     });
-//   })
-//   .catch((error) => console.error("Error fetching images:", error)); // Log more informative error message
 
 // Imgur API Integration
 const accessToken = "9528be1d30f6edb64eb4f80c18b2bfa1ebbaa934";
@@ -201,33 +164,6 @@ fetch(`${apiUrl}/account/me/images`, requestOptions)
 
 // Appointlet Button Integration
 document.addEventListener('DOMContentLoaded', (event) => {
-    const contactSection = document.getElementById('contact');
     const appointletButton = document.querySelector('.appointlet-button');
-    let isButtonVisible = false;
-
-    function toggleButtonVisibility() {
-        const contactSectionTop = contactSection.offsetTop;
-        const contactSectionHeight = contactSection.offsetHeight;
-        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-
-        // Show button when user scrolls down to the #contact section and hide it otherwise
-        const shouldShowButton = scrollPosition >= contactSectionTop && scrollPosition < contactSectionTop + contactSectionHeight;
-        if (shouldShowButton && !isButtonVisible) {
-            appointletButton.style.display = 'block';
-            appointletButton.style.position = 'fixed';
-            appointletButton.style.bottom = '20px';
-            appointletButton.style.right = '20px';
-            appointletButton.style.zIndex = '1000';
-            isButtonVisible = true;
-        } else if (!shouldShowButton && isButtonVisible) {
-            appointletButton.style.display = 'none';
-            isButtonVisible = false;
-        }
-    }
-
-    // Initial check in case the page is loaded with the #contact section already in view
-    toggleButtonVisibility();
-
-    // Check visibility on scroll
-    window.addEventListener('scroll', toggleButtonVisibility);
+    appointletButton.style.display = 'block';
 });
