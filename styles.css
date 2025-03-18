@@ -455,6 +455,8 @@ i.fa-star {
 /* Appointlet Scheduling Appointment Widget */
 .appointlet-inline {
     height: 31.25rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .appointlet-button {
